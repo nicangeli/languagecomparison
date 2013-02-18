@@ -1,7 +1,5 @@
 #! /usr/bin/env python
-
-LANGUAGE_LENGTH = 4;
-languages = ["AAAB", "AABB", "AABC", "AHDD", "SIAD"];
+import itertools
 
 def compareTwoLanguages(l1, l2):
 	count = 0;
@@ -9,6 +7,17 @@ def compareTwoLanguages(l1, l2):
 		if(l1[index] == l2[index]):
 			count += 1;
 	return (float(count)/LANGUAGE_LENGTH);
+
+def buildLanguages():
+	cartesian = itertools.product(CHARACTERS_IN_LANGUAGE, repeat=LANGUAGE_LENGTH)
+	l = []
+	for c in cartesian:
+		l.append("".join(c))
+	return l
+
+LANGUAGE_LENGTH = 2;
+CHARACTERS_IN_LANGUAGE = ['A', 'B'];
+languages = buildLanguages();
 
 for l in range(len(languages)):
 	#l is the element we're testing
