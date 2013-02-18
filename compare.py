@@ -17,7 +17,7 @@ def buildLanguages():
 
 LANGUAGE_LENGTH = 2;
 CHARACTERS_IN_LANGUAGE = ['A', 'B'];
-languages = buildLanguages();
+languages = buildLanguages(); #length of this list will be the CHARACTERS_IN_LANGUGE ^ LANGUAGE_LENGTH
 
 for l in range(len(languages)):
 	#l is the element we're testing
@@ -26,9 +26,13 @@ for l in range(len(languages)):
 	del other_elements[l];
 	print('Comparing ' + languages[l]  + ' to other languages: ')
 	coefficients = []
+	sum = 0;
 	for element in other_elements:
-		coefficients.append(compareTwoLanguages(languages[l], element));
+		tmp = compareTwoLanguages(languages[l], element)
+		coefficients.append(tmp);
+		sum += tmp
 	print(coefficients);
+	print sum
 
 
 
